@@ -21,6 +21,7 @@ exports.createPages = async ({ actions, graphql }) => {
       component: require.resolve('./src/templates/page-template.js'),
       context: {
         id: page.id,
+        content: page.content
       }
     })
   })
