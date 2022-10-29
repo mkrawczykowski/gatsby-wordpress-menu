@@ -64,7 +64,7 @@ const PageTemplate = ({ data }) => {
       { JSON.stringify(data, null, 2) }
       <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
-    </>    
+    </>
   )
 }
 
