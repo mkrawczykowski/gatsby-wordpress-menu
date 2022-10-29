@@ -6,6 +6,7 @@ exports.createPages = async ({ actions, graphql }) => {
           nodes {
             id
             uri
+            title
             content
           }
         }
@@ -21,7 +22,13 @@ exports.createPages = async ({ actions, graphql }) => {
       component: require.resolve('./src/templates/page-template.js'),
       context: {
         id: page.id,
-        content: page.content
+        // poniższe wyłączam, bo dobrą praktyką jest przekazywanie tylko ID strony zamiast całej jej treści.
+        // Pobranie wszystkich potrzebnych treści jest kuszące (jedno zapytanie do bazy zamiast wielu), ale przy większych ilościach
+        // treści może zabraknąć pamięci, bo będzie mnóstwo rzeczy naraz do pobrania
+        // https://www.gatsbyjs.com/docs/creating-and-modifying-pages/
+        //
+        // content: page.content,
+        // title: page.title
       }
     })
   })
