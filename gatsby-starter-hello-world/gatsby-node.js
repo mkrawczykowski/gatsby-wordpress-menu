@@ -5,6 +5,7 @@ exports.createPages = async ({ actions, graphql }) => {
         pages {
           nodes {
             id
+            uri
           }
         }
       }
